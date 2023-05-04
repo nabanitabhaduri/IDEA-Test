@@ -1,0 +1,57 @@
+config:
+  target: 'https://fako-api.idiosysdev.com/api/v1/user'
+  phases:
+    - duration: 120
+      arrivalRate: 5
+      name: Warm up phase   
+  #   - duration: 150
+  #     arrivalRate: 5
+  #     name: Middle phase
+  #   - duration: 200
+  #     arrivalRate: 50
+  #     name: Final phase   
+  # payload:
+  #     # path is relative to the location of the test script
+  #     path: "abc1.csv"
+  #     skipheader:true
+  #     fields:
+  #       - "s_latitude":
+  #       - "d_latitude": 
+  #       - "s_latitude":
+  #       - "d_latitude": 
+  #       - "City_id":
+
+scenarios:
+   - name: 'Load test'
+     flow:
+        #  - log: 'Get auth token'
+        - post:
+            url: "/login"
+            json:
+             email: "17auguser@mailinator.com"
+             password: "123456"
+             salt_key: "MQ==" 
+           capture:
+                - json: "$"
+                  as: result
+           expect:
+               -statuscode: 200
+        - log: "{{ result }}"
+  # - post:
+  #     url: "/login"
+  #     # url: "/api/v1/user/store/list/1"
+  #     json:
+  #       latitude: "{{ latitude }}"
+  #       longitude: "{{ longitude }}"
+  #       item: "{{ item }}"
+
+
+  # scenarios:
+  # - name: 'Load test user login & Logout'
+  # flow:
+      # - post:
+          # url: "/login"
+          # json:
+            # username: "{{ username }}"
+            # password: "{{ password }}"
+            

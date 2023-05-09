@@ -26,12 +26,13 @@ public class helloworld_test
             WebElement login = driver.findElement(By.id("login-form"));
             login.submit();
 
-//            WebElement hoverable = driver.findElement(By.className("dropdown"));//           System.out.println(hoverable.getText());
+//            WebElement hoverable = driver.findElement(By.className("dropdown"));
+//           System.out.println(hoverable.getText());
 //            new Actions(driver)
 //                    .moveToElement(hoverable)
 //                    .perform();
 
-            //          List<WebElement> logout = driver.findElements(By.tagName("a"));
+            //   List<WebElement> logout = driver.findElements(By.tagName("a"));
 //            for (WebElement element : logout) {
 //                System.out.println("Paragraph text:" + element.getText());
 //            }
